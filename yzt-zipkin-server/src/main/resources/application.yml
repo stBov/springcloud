@@ -1,0 +1,26 @@
+server:
+  port: 9011
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  application:
+    name: YZT-ZIPKIN-SERVER
+  profiles:
+    active:
+    - dev
+  sleuth:
+    enabled: false
+  datasource:
+    schema:
+    - classpath:/mysql.sql
+    initialize: true
+    continue-on-error: true
+endpoints:
+  health:
+    sensitive: false
+management:
+  security:
+    enabled: false
+zipkin:
+  storage:
+    type: mysql

@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: YZT-EUREKA-SERVER
+server:
+  port: 9002 #本地开发专用
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://admin:bjs191@localhost:9002/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+security:
+  basic:
+    enabled: true               # 开启基于HTTP basic的认证
+  user:
+    name: admin
+    password: bjs191

@@ -1,0 +1,26 @@
+server:
+  #port: 9126
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  application:
+    name: YZT-SERVICE
+  profiles:
+    active:
+    - dev # 开发环境配置
+    #- sit # 测试环境配置
+    #- uat # 准生产环境配置
+    #- prd #生产环境配置
+  aop: 
+    auto: true
+    proxy-target-class: false
+endpoints:
+  health:
+    sensitive: false
+management:
+  security:
+    enabled: false
+eureka:
+  random:
+    portBase: 9100
+    portRange: 1000

@@ -1,0 +1,16 @@
+server:
+  port: 9010
+spring:
+  application:
+    name: YZT-ADMIN-SERVER
+  profiles:
+    active:
+    - dev # 开发环境配置
+    #- test # 测试环境配置
+    #- prd #生产环境配置
+endpoints:
+  health:
+    sensitive: false
+management:
+  security:
+    enabled: false

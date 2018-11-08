@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: YZT-ZUUL-SERVER
+  profiles:
+    active:
+    - dev # 开发环境配置
+    #- test # 测试环境配置
+    #- prd #生产环境配置
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+server:
+  port: 9003
+  tomcat:
+    uri-encoding: UTF-8
+zuul:
+  ignored-services: '*'
+#  retryable: true
+  routes:
+    neon-service-bp:
+      path: /api/**
+      service-id: yzt-api
+      stripPrefix: false
+    neon-service-sms:
+      path: /service/**
+      service-id: yzt-service
+      stripPrefix: false
+ribbon:
+  ReadTimeout: 60000  
+  ConnectTimeout: 10000
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 2
+hystrix:
+  command: 
+    default: 
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 100000
